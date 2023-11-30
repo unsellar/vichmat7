@@ -5,6 +5,7 @@ using namespace std;
 float func(float x, float y){
     float a = -1.5, b = -2.7, c = 0.6;
     return a * y + b * (x-1) * (x-1);
+//    return x * x + y;
 }
 
 float eiler(float a, float b, float c){
@@ -38,7 +39,7 @@ float rungeKutta(float a, float b, float c){
     float k0, k1, k2, k3;
     cout << "--------Runge-Kutta-----------"<<endl;
     int i = 1;
-    while(x < right){
+    while(x < right){//             ;)
         k0 = func(x, y);
         k1 = func(x+(h/2), y+((h*k0)/2));
         k2 = func(x+(h/2), y+((h*k1)/2));
@@ -48,6 +49,7 @@ float rungeKutta(float a, float b, float c){
         cout << "k0 = " << k0 << ";   "<< "k1 = " << k1 << ";   "<< "k2 = " << k2 << ";   "<< "k3 = " << k3 << ";   "<< endl;
         cout << "y" << i << " = " << y << "      for x = " << x << endl << endl;
         i++;
+        
     }
     return y;
 }
