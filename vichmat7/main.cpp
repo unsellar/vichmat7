@@ -8,13 +8,14 @@ float func(float x, float y){
 }
 
 float eiler(float a, float b, float c){
-    float right = 2, x = 0, y = c, h = 0.5;
+    float right = 2, x = 0, y = c, h = 0.5, y_res = c;
     cout << "--------Eiler-----------"<<endl;
     int i = 1;
     while(x < right){
         y = y + h*func(x, y);
+        y_res += y;
         x += h;
-        cout << "y" << i << " = " << y << "      for x = " << x << endl;
+        cout << "y" << i << " = " << y_res << "      for x = " << x << endl;
         i++;
     }
     return y;
