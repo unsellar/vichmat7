@@ -33,12 +33,30 @@ float kEiler(float a, float b, float c){
     return y;
 }
 
-
+float rungeKutta(float a, float b, float c){
+    float right = 2, x = 0, y = c, h = 0.5;
+    float k0, k1, k2, k3;
+    cout << "--------Runge-Kutta-----------"<<endl;
+    int i = 1;
+    while(x < right){
+        k0 = func(x, y);
+        k1 = func(x+(h/2), y+((h*k0)/2));
+        k2 = func(x+(h/2), y+((h*k1)/2));
+        k3 = func(x+h, y+h*k2);
+        y = h/6 * (k0 + 2*k1 + 2*k2 + k3);
+        x += h;
+        cout << "k0 = " << k0 << ";   "<< "k1 = " << k1 << ";   "<< "k2 = " << k2 << ";   "<< "k3 = " << k3 << ";   "<< endl;
+        cout << "y" << i << " = " << y << "      for x = " << x << endl << endl;
+        i++;
+    }
+    return y;
+}
 
 
 int main(){
     float a = -1.5, b = -2.7, c = 0.6; // менять тут и в func(первая функция)
     eiler(a, b, c);
     kEiler(a, b, c);
+    rungeKutta(a, b, c);
     
 }
