@@ -44,7 +44,7 @@ float rungeKutta(float a, float b, float c){
         k1 = func(x+(h/2), y+((h*k0)/2));
         k2 = func(x+(h/2), y+((h*k1)/2));
         k3 = func(x+h, y+h*k2);
-        y = h/6 * (k0 + 2*k1 + 2*k2 + k3);
+        y += h/6 * (k0 + 2*k1 + 2*k2 + k3);
         x += h;
         cout << "k0 = " << k0 << ";   "<< "k1 = " << k1 << ";   "<< "k2 = " << k2 << ";   "<< "k3 = " << k3 << ";   "<< endl;
         cout << "y" << i << " = " << y << "      for x = " << x << endl << endl;
